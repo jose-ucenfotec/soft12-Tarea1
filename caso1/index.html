@@ -1,44 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Centro de control · Expedicion Bosque Nuboso 2026</title>
-        <link rel="stylesheet" href="css/estilos.css">
-    </head>
-    <body>
-        <header class="cab">
-            <h1>Centro de control · Expedicion Bosque Nuboso 2026</h1>
-            <p>Estacion biologica Monteverde · Dia 4 de 7 · Operaciones activas</p>
-            <nav>
-                <ul>
-                    <li><a href="#">Resumen</a></li>
-                    <li><a href="#">Misiones</a></li>
-                    <li><a href="#">Equipos</a></li>
-                    <li><a href="#">Alertas</a></li>
-                    <li><a href="#">Agenda</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section>
-                <h2>Misiones activas</h2>
-                <article>
-                    <h3>Monitoreo de anfibios</h3>
-                    <p>Equipo de biologia 08:30 - 11:00</p>
-                </article>
-                <article>
-                    <h3>Medicion de caudal</h3>
-                    <p>Equipo de hidrologia 10:00 - 13:00</p>
-                </article>
-            </section>
-        <aside>
-            <h2>Agenda</h2>
-            <p>13:00 Calibracion · 15:00 Reunion de equipo</p>
-        </aside>
-        </main>
-        <footer>
-            <p>© 2026 Expedicion Bosque Nuboso. Todos los derechos reservados.</p>
-        </footer>
-    </body>
-</html>
+<header>
+  <h1>Expedición Bosque Nuboso 2026</h1>
+  <p>Estación Biológica Monteverde · Día 4 de 7 · Operaciones activas</p>
+</header>
+<nav aria-label="Principal">
+  <ul>
+    <li><a href="#resumen" aria-current="page">Resumen</a></li>
+    <li><a href="#misiones">Misiones</a></li>
+    <li><a href="#equipos">Equipos</a></li>
+    <li><a href="#alertas">Alertas</a></li>
+    <li><a href="#agenda">Agenda</a></li>
+  </ul>
+</nav>
+<main>
+  <section id="resumen" aria-labelledby="t-resumen">
+    <h2 id="t-resumen">Resumen de operaciones</h2>
+    <p>12 investigadores activos · 3 misiones en progreso · 7 completadas · 2 alertas pendientes</p>
+  </section>
+  <section id="misiones" aria-labelledby="t-misiones">
+    <h2 id="t-misiones">Misiones activas</h2>
+    <article>
+      <h3>Monitoreo de anfibios</h3>
+      <p>Equipo Biología · Sendero Norte · <time datetime="08:30">08:30</time>–<time datetime="11:30">11:30</time> · Prioridad alta · En progreso</p>
+    </article>
+    <article>
+      <h3>Medición de caudal</h3>
+      <p>Equipo Hidrología · Río Guacimal · <time datetime="09:00">09:00</time>–<time datetime="10:00">10:00</time> · Prioridad media · Pendiente</p>
+    </article>
+  </section>
+  <section id="alertas" aria-labelledby="t-alertas">
+    <h2 id="t-alertas">Alertas</h2>
+    <p>⚠ Sensor meteorológico sin conexión (crítica) · ℹ Retraso en misión de hidrología (informativa)</p>
+  </section>
+</main>
+<footer>Centro de control · Coordinación de la expedición</footer>
