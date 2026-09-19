@@ -1,59 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Centro de control * Expedicion Bosque Nuboso 2026</title>
-        <link rel="stylesheet" href="css/estilos.css">
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del festival · Festival Cultural Ribera 2026</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
 <header class="cabecera">
   <h1>Festival Cultural Ribera 2026</h1>
   <p>Sábado 10 de octubre · Parque Central · 10:00–22:00</p>
 </header>
-<nav aria-label="Secciones del festival">
-  <ul>
-    <li><a href="#ahora" aria-current="page">Ahora</a></li>
-    <li><a href="#programacion">Programación</a></li>
-    <li><a href="#escenarios">Escenarios</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#informacion">Información</a></li>
+
+<nav class="nav" aria-label="Secciones del festival">
+  <ul class="nav__lista">
+    <li><a class="nav__enlace" href="#ahora" aria-current="page">Ahora</a></li>
+    <li><a class="nav__enlace" href="#proximas">Próximas</a></li>
+    <li><a class="nav__enlace" href="#cambios">Cambios</a></li>
+    <li><a class="nav__enlace" href="#servicios">Servicios</a></li>
+    <li><a class="nav__enlace" href="#escenarios">Escenarios</a></li>
   </ul>
 </nav>
+
 <main class="contenedor">
-<section id="ahora" aria-labelledby="t-ahora">
-  <h2 id="t-ahora">Ahora</h2>
 
-  <article>
-    <h3>Concierto — Los Viajeros</h3>
-    <ul>
-      <li>Música</li>
-      <li>Escenario Central</li>
-      <li><time datetime="14:00">14:00</time>–<time datetime="15:00">15:00</time></li>
+  <section id="ahora" aria-labelledby="t-ahora">
+    <h2 id="t-ahora">Ahora</h2>
+    <ul class="tarjetas-ahora">
+      <li><article class="actividad-ahora">
+        <span class="etiqueta-ahora">● En este momento</span>
+        <h3>Concierto — Los Viajeros</h3>
+        <p>Música · Escenario Central · <time datetime="14:00">14:00</time>–<time datetime="15:00">15:00</time></p>
+      </article></li>
+      <li><article class="actividad-ahora">
+        <span class="etiqueta-ahora">● En este momento</span>
+        <h3>Taller de máscaras</h3>
+        <p>Actividad infantil · Zona Familiar · <time datetime="14:00">14:00</time>–<time datetime="15:30">15:30</time></p>
+      </article></li>
+      <li><article class="actividad-ahora">
+        <span class="etiqueta-ahora">● En este momento</span>
+        <h3>Cuentacuentos al aire libre</h3>
+        <p>Teatro · Zona Cultural · <time datetime="14:15">14:15</time>–<time datetime="14:45">14:45</time></p>
+      </article></li>
     </ul>
-    <span class="estado">● En este momento</span>
-  </article>
+  </section>
 
-  <article>
-    <h3>Taller de máscaras</h3>
-    <ul>
-      <li>Actividad infantil</li>
-      <li>Zona Familiar</li>
-      <li><time datetime="14:00">14:00</time>–<time datetime="15:30">15:30</time></li>
-    </ul>
-    <span class="estado">● En este momento</span>
-  </article>
+  <section id="proximas" aria-labelledby="t-proximas">
+    <h2 id="t-proximas">Próximas actividades</h2>
+    <ol class="proximas">
+      <li><time datetime="15:30">15:30</time> Danza folclórica <span class="escenario-nombre">Escenario Central</span> <span class="categoria categoria--danza">Danza</span></li>
+      <li><time datetime="16:00">16:00</time> Feria de comidas típicas <span class="escenario-nombre">Zona Familiar</span> <span class="categoria categoria--gastronomia">Gastronomía</span></li>
+      <li><time datetime="16:30">16:30</time> Charla: historia del festival <span class="escenario-nombre">Teatro</span> <span class="categoria categoria--conferencia">Conferencia</span></li>
+      <li><time datetime="17:00">17:00</time> Obra de teatro comunitario <span class="escenario-nombre">Teatro</span> <span class="categoria categoria--teatro">Teatro</span></li>
+      <li><time datetime="18:00">18:00</time> Concierto de jazz <span class="escenario-nombre">Escenario Central</span> <span class="categoria categoria--musica">Música</span></li>
+      <li><time datetime="19:30">19:30</time> Exposición de artesanías <span class="escenario-nombre">Zona Cultural</span> <span class="categoria categoria--conferencia">Cultural</span></li>
+    </ol>
+  </section>
 
-  <article>
-    <h3>Cuentacuentos al aire libre</h3>
-    <ul>
-      <li>Teatro</li>
-      <li>Zona Cultural</li>
-      <li><time datetime="14:15">14:15</time>–<time datetime="14:45">14:45</time></li>
+  <section id="cambios" aria-labelledby="t-cambios">
+    <h2 id="t-cambios">Cambios importantes</h2>
+    <ul class="cambios">
+      <li class="cambio cambio--traslado"><strong>Traslado:</strong> el taller de cerámica se movió de la Zona Cultural a la Zona Familiar.</li>
+      <li class="cambio cambio--horario"><strong>Cambio de horario:</strong> el concierto de jazz inicia 30 minutos después (18:00).</li>
+      <li class="cambio cambio--cancelacion"><strong>Cancelación:</strong> la proyección de cortometrajes de las 20:00 se canceló por lluvia.</li>
+      <li class="cambio cambio--escenario"><strong>Cambio de escenario:</strong> la danza folclórica pasa del Teatro al Escenario Central.</li>
     </ul>
-    <span class="estado">● En este momento</span>
-  </article>
-</section>
+  </section>
+
+  <section id="servicios" aria-labelledby="t-servicios">
+    <h2 id="t-servicios">Servicios</h2>
+    <ul class="servicios">
+      <li>Puestos de comida</li>
+      <li>Baños</li>
+      <li>Primeros auxilios</li>
+      <li>Hidratación</li>
+      <li>Punto de información</li>
+      <li>Acceso para sillas de ruedas</li>
+      <li>Estacionamiento</li>
+      <li>Objetos perdidos</li>
+    </ul>
+  </section>
+
+  <section id="escenarios" aria-labelledby="t-escenarios">
+    <h2 id="t-escenarios">Programación por escenarios</h2>
+    <div class="escenarios">
+      <article class="escenario-tarjeta">
+        <h3>Escenario Central</h3>
+        <ul>
+          <li><time datetime="14:00">14:00</time> Concierto — Los Viajeros</li>
+          <li><time datetime="15:30">15:30</time> Danza folclórica</li>
+          <li><time datetime="18:00">18:00</time> Concierto de jazz</li>
+        </ul>
+      </article>
+      <article class="escenario-tarjeta">
+        <h3>Teatro</h3>
+        <ul>
+          <li><time datetime="14:15">14:15</time> Cuentacuentos al aire libre</li>
+          <li><time datetime="16:30">16:30</time> Charla: historia del festival</li>
+          <li><time datetime="17:00">17:00</time> Obra de teatro comunitario</li>
+        </ul>
+      </article>
+      <article class="escenario-tarjeta">
+        <h3>Zona Cultural</h3>
+        <ul><li><time datetime="19:30">19:30</time> Exposición de artesanías</li></ul>
+      </article>
+      <article class="escenario-tarjeta">
+        <h3>Zona Familiar</h3>
+        <ul>
+          <li><time datetime="14:00">14:00</time> Taller de máscaras</li>
+          <li><time datetime="16:00">16:00</time> Feria de comidas típicas</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
 </main>
+
+<footer>
+  <p>Organización: Municipalidad de Ribera · <a href="mailto:info@festivalribera.cr">info@festivalribera.cr</a></p>
+</footer>
 </body>
 </html>
