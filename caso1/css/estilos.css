@@ -420,3 +420,86 @@ footer a {
 .prioridad--alta { background: #fde8e8; color: #c62828; }
 .prioridad--media { background: #fff3e0; color: #8a5300; }
 .prioridad--baja { background: #e4f5ea; color: #14663c; }
+
+/*  Equipos  */
+.equipos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.equipo-tarjeta article {
+    height: 100%;
+    background: #fff;
+    border: 1px solid #e3e6ef;
+    border-radius: .5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.equipo-tarjeta h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.equipo-tarjeta__dato {
+    margin: 0;
+    font-size: .8rem;
+    color: var(--color-texto-suave);
+}
+
+.equipo-tarjeta__proxima {
+    margin-top: auto;
+    font-size: .75rem;
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+/*  Posicionamiento: nav siempre visible mientras se hace scroll  */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+/*  Tablet (601–1024px)  */
+@media (min-width: 601px) {
+    .indicadores {
+        flex-wrap: nowrap;
+    }
+    main {
+        padding: 1.5rem;
+    }
+}
+
+/*  Escritorio (>1024px) — Grid obligatorio para la estructura principal  */
+@media (min-width: 1025px) {
+    main {
+        max-width: 75rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "resumen   resumen"
+            "misiones  alertas"
+            "misiones  equipos"
+            "estacion  agenda";
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    main section {
+        margin-bottom: 0;
+    }
+
+    #resumen   { grid-area: resumen; }
+    #misiones  { grid-area: misiones; }
+    #alertas   { grid-area: alertas; }
+    #equipos   { grid-area: equipos; }
+    #estacion  { grid-area: estacion; }
+    #agenda    { grid-area: agenda; }
+}

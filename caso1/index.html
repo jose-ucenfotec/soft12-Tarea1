@@ -23,83 +23,142 @@
   </ul>
 </nav>
 <main id="contenido">
-  <section id="resumen" aria-labelledby="t-resumen">
-    <h2 id="t-resumen">Resumen de operaciones</h2>
-    <p>12 investigadores activos · 3 misiones en progreso · 2 alertas pendientes</p>
-    <a class="boton" href="#alertas">Ver alertas</a>
-  </section>
+<section id="resumen" aria-labelledby="t-resumen">
+  <h2 id="t-resumen">Resumen de operaciones</h2>
+  <ul class="indicadores">
+    <li class="indicador indicador--grande">
+      <span class="indicador__valor">12</span>
+      <span class="indicador__etiqueta">Investigadores activos</span>
+    </li>
+    <li class="indicador">
+      <span class="indicador__valor">3</span>
+      <span class="indicador__etiqueta">Misiones en progreso</span>
+    </li>
+    <li class="indicador">
+      <span class="indicador__valor">1</span>
+      <span class="indicador__etiqueta">Misiones completadas</span>
+    </li>
+    <li class="indicador indicador--alerta">
+      <span class="indicador__valor">4</span>
+      <span class="indicador__etiqueta">Alertas pendientes</span>
+    </li>
+  </ul>
+  <a class="boton" href="#alertas">Ver alertas</a>
+</section>
 
   <section id="estacion" aria-labelledby="t-estacion">
     <h2 id="t-estacion">Estación base</h2>
 
     <figure>
       <img class="foto"
-           src="https://placeholder.com"
+           src="img/estacion.svg"
            width="480" height="200"
            alt="Torre de la estación meteorológica entre la niebla del bosque nuboso">
       <figcaption>Estación Biológica Monteverde, sector norte</figcaption>
     </figure>
 
     <img class="mapa"
-         src="https://placeholder.com"
+        src="img/mapa.svg"
          width="480" height="200"
          alt="Mapa de la reserva: estación base al centro, sendero norte y río Guacimal al este">
   </section>
 
   <section id="misiones" aria-labelledby="t-misiones">
     <h2 id="t-misiones">Misiones activas</h2>
-    <ul class="misiones">
-      <li><article>
-        <h3>Monitoreo de anfibios</h3>
-        <p>Equipo Biología · Sendero Norte · <time datetime="08:30">08:30</time>–<time datetime="11:30">11:30</time></p>
-        <span class="estado estado--progreso"><span aria-hidden="true">▶</span> En progreso</span>
-      </article></li>
-      <li><article>
-        <h3>Medición de caudal</h3>
-        <p>Equipo Hidrología · Río Guacimal · <time datetime="09:00">09:00</time>–<time datetime="10:00">10:00</time></p>
-        <span class="estado estado--pendiente"><span aria-hidden="true">○</span> Pendiente</span>
-      </article></li>
-      <li><article>
-        <h3>Calibración de estación meteorológica</h3>
-        <p>Equipo Meteorología · Torre 2 · <time datetime="06:00">06:00</time>–<time datetime="07:30">07:30</time></p>
-        <span class="estado estado--completada"><span aria-hidden="true">✓</span> Completada</span>
-      </article></li>
-      <li><article>
-        <h3>Muestreo de suelos</h3>
-        <p>Equipo Geología · Ladera este · <time datetime="13:00">13:00</time>–<time datetime="15:00">15:00</time></p>
-        <span class="estado estado--suspendida"><span aria-hidden="true">■</span> Suspendida</span>
-      </article></li>
-    </ul>
+<ul class="misiones">
+  <li><article>
+    <span class="prioridad prioridad--alta">Prioridad alta</span>
+    <h3>Monitoreo de anfibios</h3>
+    <p>Equipo Biología · Sendero Norte · <time datetime="08:30">08:30</time>–<time datetime="11:30">11:30</time></p>
+    <span class="estado estado--progreso"><span aria-hidden="true">▶</span> En progreso</span>
+  </article></li>
+  <li><article>
+    <span class="prioridad prioridad--media">Prioridad media</span>
+    <h3>Medición de caudal</h3>
+    <p>Equipo Hidrología · Río Guacimal · <time datetime="09:00">09:00</time>–<time datetime="10:00">10:00</time></p>
+    <span class="estado estado--pendiente"><span aria-hidden="true">○</span> Pendiente</span>
+  </article></li>
+  <li><article>
+    <span class="prioridad prioridad--baja">Prioridad baja</span>
+    <h3>Calibración de estación meteorológica</h3>
+    <p>Equipo Meteorología · Torre 2 · <time datetime="06:00">06:00</time>–<time datetime="07:30">07:30</time></p>
+    <span class="estado estado--completada"><span aria-hidden="true">✓</span> Completada</span>
+  </article></li>
+  <li><article>
+    <span class="prioridad prioridad--media">Prioridad media</span>
+    <h3>Muestreo de suelos</h3>
+    <p>Equipo Geología · Ladera este · <time datetime="13:00">13:00</time>–<time datetime="15:00">15:00</time></p>
+    <span class="estado estado--suspendida"><span aria-hidden="true">■</span> Suspendida</span>
+  </article></li>
+  <li><article>
+    <span class="prioridad prioridad--alta">Prioridad alta</span>
+    <h3>Registro fotográfico de fauna nocturna</h3>
+    <p>Equipo Biología · Sendero Sur · <time datetime="19:00">19:00</time>–<time datetime="21:00">21:00</time></p>
+    <span class="estado estado--pendiente"><span aria-hidden="true">○</span> Pendiente</span>
+  </article></li>
+</ul>
   </section>
 
-  <section id="equipos" aria-labelledby="t-equipos">
-    <h2 id="t-equipos">Equipos</h2>
-    <ul class="equipos">
-      <li>Biología · 4 investigadores</li>
-      <li>Hidrología · 3 investigadores</li>
-      <li>Meteorología · 2 investigadores</li>
-      <li>Geología · 3 investigadores</li>
-    </ul>
-  </section>
+<section id="equipos" aria-labelledby="t-equipos">
+  <h2 id="t-equipos">Equipos científicos</h2>
+  <ul class="equipos">
+    <li class="equipo-tarjeta">
+      <article>
+        <h3>Biología</h3>
+        <p class="equipo-tarjeta__dato">4 investigadores: Rojas, Vindas, Mora, Chaves</p>
+        <p class="equipo-tarjeta__dato">Misión actual: Monitoreo de anfibios</p>
+        <span class="estado estado--progreso">En progreso</span>
+        <p class="equipo-tarjeta__proxima">Próxima actividad: 14:00 · Revisión de trampas de cámara</p>
+      </article>
+    </li>
+    <li class="equipo-tarjeta">
+      <article>
+        <h3>Hidrología</h3>
+        <p class="equipo-tarjeta__dato">3 investigadores: Solano, Araya, Jiménez</p>
+        <p class="equipo-tarjeta__dato">Misión actual: Medición de caudal</p>
+        <span class="estado estado--pendiente">Pendiente</span>
+        <p class="equipo-tarjeta__proxima">Próxima actividad: 17:30 · Descarga de datos de sensores</p>
+      </article>
+    </li>
+    <li class="equipo-tarjeta">
+      <article>
+        <h3>Meteorología</h3>
+        <p class="equipo-tarjeta__dato">2 investigadores: Fernández, Castro</p>
+        <p class="equipo-tarjeta__dato">Misión actual: Calibración de estación meteorológica</p>
+        <span class="estado estado--completada">Completada</span>
+        <p class="equipo-tarjeta__proxima">Próxima actividad: 13:00 · Calibración adicional</p>
+      </article>
+    </li>
+    <li class="equipo-tarjeta">
+      <article>
+        <h3>Geología</h3>
+        <p class="equipo-tarjeta__dato">3 investigadores: Salas, Ureña, Brenes</p>
+        <p class="equipo-tarjeta__dato">Misión actual: Muestreo de suelos</p>
+        <span class="estado estado--suspendida">Suspendida</span>
+        <p class="equipo-tarjeta__proxima">Próxima actividad: 16:00 · Muestreo en ladera este</p>
+      </article>
+    </li>
+  </ul>
+</section>
 
   <section id="alertas" aria-labelledby="t-alertas">
     <h2 id="t-alertas">Alertas</h2>
 
-    <article class="alerta alerta--critica">
-      <h3 class="alerta__titulo"><span aria-hidden="true">⚠</span> Crítica: sensor meteorológico sin conexión</h3>
-      <p class="alerta__texto">Prioridad crítica · Estación meteorológica, sector norte</p>
-      <button type="button" class="cerrar" aria-label="Cerrar alerta: sensor meteorológico sin conexión">
-        <span aria-hidden="true">✕</span>
-      </button>
-    </article>
+<article class="alerta alerta--critica">
+  <h3 class="alerta__titulo"><span aria-hidden="true">⚠</span> Crítica: lluvia intensa en sector norte</h3>
+  <p class="alerta__texto">Prioridad crítica · Sendero Norte, riesgo de crecida súbita</p>
+  <button type="button" class="cerrar" aria-label="Cerrar alerta: lluvia intensa en sector norte">
+    <span aria-hidden="true">✕</span>
+  </button>
+</article>
 
-    <article class="alerta">
-      <h3 class="alerta__titulo"><span aria-hidden="true">ℹ</span> Informativa: retraso en misión de hidrología</h3>
-      <p class="alerta__texto">Prioridad informativa · Medición de caudal, río Guacimal</p>
-      <button type="button" class="cerrar" aria-label="Cerrar alerta: retraso en misión de hidrología">
-        <span aria-hidden="true">✕</span>
-      </button>
-    </article>
+<article class="alerta">
+  <h3 class="alerta__titulo"><span aria-hidden="true">ℹ</span> Informativa: batería baja en equipo remoto</h3>
+  <p class="alerta__texto">Prioridad informativa · Sensor de cámara trampa, sendero sur</p>
+  <button type="button" class="cerrar" aria-label="Cerrar alerta: batería baja en equipo remoto">
+    <span aria-hidden="true">✕</span>
+  </button>
+</article>
   </section>
 
   <section id="agenda" aria-labelledby="t-agenda">
