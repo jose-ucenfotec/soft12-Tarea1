@@ -350,3 +350,73 @@ address {
 footer a {
     color: #0f3d2e;
 }
+
+/* Indicadores del resumen */
+.indicadores {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.indicador {
+    background: #fff;
+    border: 1px solid #e3e6ef;
+    border-radius: var(--radio);
+    padding: var(--espacio-3);
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+    flex: 1 1 8rem;
+}
+
+.indicador__valor {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.indicador__etiqueta {
+    font-size: .75rem;
+    color: var(--color-texto-suave);
+}
+
+/* No todos del mismo tamaño */
+.indicador--grande {
+    flex-basis: 12rem;
+}
+
+.indicador--grande .indicador__valor {
+    font-size: 2.25rem;
+}
+
+.indicador--alerta {
+    border-left: 4px solid #c62828;
+}
+
+.indicador--alerta .indicador__valor {
+    color: #c62828;
+}
+
+.misiones article {
+    position: relative;
+    padding-top: 2rem; 
+}
+
+.prioridad {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: .7rem;
+    font-weight: 700;
+    padding: .1rem .5rem;
+    border-radius: 999px;
+    background: #eceef5;
+    color: var(--color-texto-suave);
+}
+
+.prioridad--alta { background: #fde8e8; color: #c62828; }
+.prioridad--media { background: #fff3e0; color: #8a5300; }
+.prioridad--baja { background: #e4f5ea; color: #14663c; }

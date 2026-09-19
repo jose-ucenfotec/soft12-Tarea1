@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200">
+  <rect width="480" height="200" fill="#e8f5ee"/>
+  <path d="M20 100 Q140 40 240 100 T460 100" stroke="#0b5394" stroke-width="4" fill="none"/>
+  <circle cx="240" cy="100" r="8" fill="#0f3d2e"/>
+  <text x="240" y="80" fill="#0f3d2e" font-family="system-ui" font-size="12" text-anchor="middle">Estación base</text>
+  <text x="60" y="130" fill="#5b6273" font-family="system-ui" font-size="11">Sendero Norte</text>
+  <text x="400" y="130" fill="#5b6273" font-family="system-ui" font-size="11">Río Guacimal</text>
+</svg>

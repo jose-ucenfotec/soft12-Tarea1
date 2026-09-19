@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200">
+  <rect width="480" height="200" fill="#0f3d2e"/>
+  <circle cx="380" cy="50" r="26" fill="#e8f5ee"/>
+  <path d="M0 160 L80 90 L140 140 L220 60 L300 150 L380 100 L480 160 L480 200 L0 200 Z" fill="#134a37"/>
+  <rect x="210" y="60" width="10" height="80" fill="#cfe0d8"/>
+  <text x="240" y="185" fill="#cfe0d8" font-family="system-ui" font-size="14" text-anchor="middle">Estación Monteverde</text>
+</svg>
