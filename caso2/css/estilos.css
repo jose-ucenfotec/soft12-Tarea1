@@ -8,6 +8,17 @@
   --color-borde: #ddd0ea;
   --color-texto: #241b2f;
   --color-texto-suave: #6b6178;
+  /* Categorías y avisos */
+  --color-musica: #0b4a8b;       --color-musica-fondo: #e8f1fb;
+  --color-teatro: #4a148c;       --color-teatro-fondo: #f1e8f8;
+  --color-danza: #ad1457;        --color-danza-fondo: #fde8f0;
+  --color-gastro: #8a5300;       --color-gastro-fondo: #fff3e0;
+  --color-conferencia: #14663c;  --color-conferencia-fondo: #e4f5ea;
+  --color-cultural: #4a148c;     --color-cultural-fondo: #eee5f7;
+  --color-aviso-fondo: #fff8e6;
+  --color-critico: #c62828;      --color-critico-fondo: #fde8e8;
+  /* Espaciado y radios */
+  --espacio-1: .25rem;
   --espacio-2: .5rem;
   --espacio-3: 1rem;
   --espacio-4: 1.5rem;
@@ -32,7 +43,7 @@ img { max-width: 100%; height: auto; }
     text-align: center;
 }
 
-.cabecera h1 { margin: 0 0 .25rem; font-size: 1.25rem; }
+.cabecera h1 { margin: 0 0 .25rem; font-size: clamp(1.25rem, 1rem + 1.5vw, 2rem); }
 .cabecera p { margin: 0; opacity: .9; font-size: .8rem; }
 
 /* Nav en Flexbox, sticky para no perderla al hacer scroll */
@@ -59,9 +70,12 @@ img { max-width: 100%; height: auto; }
 .nav__enlace {
     color: #fff;
     text-decoration: none;
-    padding: .35rem .6rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;        /* 44px: objetivo táctil */
+    padding: .5rem .75rem;
     border-radius: .4rem;
-    font-size: .8rem;
+    font-size: .875rem;
     white-space: nowrap;
     flex: 0 0 auto;
 }
@@ -73,7 +87,7 @@ img { max-width: 100%; height: auto; }
     outline-offset: 2px;
 }
 
-.nav__enlace[aria-current="page"] {
+.nav__enlace[aria-current="location"] {
     background: rgba(255,255,255,.2);
     font-weight: 700;
 }
@@ -147,7 +161,7 @@ h2 {
     background: var(--color-superficie);
     border-radius: var(--radio);
     padding: .6rem .75rem;
-    font-size: .8rem;
+    font-size: .875rem;
 }
 
 .proximas time { font-weight: 700; color: var(--color-primario); }
@@ -158,17 +172,16 @@ h2 {
     font-size: .75rem;
     padding: .1rem .5rem;
     border-radius: 999px;
-    background: #eee5f7;
+    background: var(--color-cultural-fondo);
     color: var(--color-primario);
 }
 
-
-.categoria--musica      { background: #e8f1fb; color: #0b4a8b; }
-.categoria--teatro      { background: #f1e8f8; color: #4a148c; }
-.categoria--danza       { background: #fde8f0; color: #ad1457; }
-.categoria--gastronomia { background: #fff3e0; color: #8a5300; }
-.categoria--conferencia { background: #e4f5ea; color: #14663c; }
-.categoria--cultural    { background: #eee5f7; color: var(--color-primario); }
+.categoria--musica      { background: var(--color-musica-fondo);      color: var(--color-musica); }
+.categoria--teatro      { background: var(--color-teatro-fondo);      color: var(--color-teatro); }
+.categoria--danza       { background: var(--color-danza-fondo);       color: var(--color-danza); }
+.categoria--gastronomia { background: var(--color-gastro-fondo);      color: var(--color-gastro); }
+.categoria--conferencia { background: var(--color-conferencia-fondo); color: var(--color-conferencia); }
+.categoria--cultural    { background: var(--color-cultural-fondo);    color: var(--color-cultural); }
 
 .cambios {
     list-style: none;
@@ -181,16 +194,16 @@ h2 {
 
 .cambio {
     border-left: 4px solid var(--color-acento);
-    background: #fff8e6;
+    background: var(--color-aviso-fondo);
     padding: .6rem .75rem;
     border-radius: .4rem;
-    font-size: .8rem;
+    font-size: .875rem;
 }
 
-.cambio--traslado    { border-left-color: #1565c0; background: #e8f1fb; }
-.cambio--horario     { border-left-color: var(--color-acento); background: #fff8e6; }
-.cambio--escenario   { border-left-color: #6a1b9a; background: #f1e8f8; }
-.cambio--cancelacion { border-left-color: #c62828; background: #fde8e8; }
+.cambio--traslado    { border-left-color: var(--color-musica);  background: var(--color-musica-fondo); }
+.cambio--horario     { border-left-color: var(--color-acento);  background: var(--color-aviso-fondo); }
+.cambio--escenario   { border-left-color: var(--color-teatro);  background: var(--color-teatro-fondo); }
+.cambio--cancelacion { border-left-color: var(--color-critico); background: var(--color-critico-fondo); }
 
 /* Servicios */
 .servicios {
@@ -225,21 +238,25 @@ h2 {
 }
 
 .escenario-tarjeta h3 { margin: 0 0 .35rem; font-size: .9rem; color: var(--color-primario); }
-.escenario-tarjeta ul { margin: 0; padding-left: 1rem; font-size: .8rem; }
+.escenario-tarjeta ul { margin: 0; padding-left: 1rem; font-size: .875rem;; }
 
 /* Información general */
-.info {
-    font-style: normal;
+.informacion {
+    list-style: none;
+    margin: 0;
+    padding: var(--espacio-3);
     background: var(--color-superficie);
     border: 1px solid var(--color-borde);
     border-radius: var(--radio);
-    padding: var(--espacio-3);
-    font-size: .85rem;
+    font-size: .875rem;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
 }
 
-.info p { margin: 0 0 .35rem; }
-.info p:last-child { margin-bottom: 0; }
-.info a { color: var(--color-primario); }
+.informacion p { margin: 0 0 .35rem; }
+.informacion p:last-child { margin-bottom: 0; }
+.informacion a { color: var(--color-primario); }
 
 footer {
     text-align: center;
@@ -261,24 +278,24 @@ footer {
     .contenedor {
         max-width: 70rem;
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
-            "ahora      ahora"
-            "escenarios servicios"
-            "escenarios cambios"
-            "escenarios informacion"
-            "proximas   proximas";
+            "ahora       ahora       ahora"
+            "escenarios  escenarios  escenarios"
+            "proximas    cambios     servicios"
+            "proximas    informacion informacion";
         gap: var(--espacio-4);
         align-items: start;
     }
     section { margin-bottom: 0; }
-    #ahora      { grid-area: ahora; }
-    #escenarios { grid-area: escenarios; }
-    #servicios  { grid-area: servicios; }
-    #cambios    { grid-area: cambios; }
+    #ahora       { grid-area: ahora; }
+    #escenarios  { grid-area: escenarios; }
+    #proximas    { grid-area: proximas; }
+    #cambios     { grid-area: cambios; }
+    #servicios   { grid-area: servicios; }
     #informacion { grid-area: informacion; }
-    #proximas   { grid-area: proximas; }
-    .escenarios { grid-template-columns: repeat(4, 1fr); }
+    .escenarios { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
     .tarjetas-ahora { flex-direction: row; }
     .tarjetas-ahora li { flex: 1 1 0; }
+    .actividad-ahora { height: 100%; }
 }
