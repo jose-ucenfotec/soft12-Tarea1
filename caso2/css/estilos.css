@@ -224,10 +224,11 @@ footer {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-areas:
-            "ahora     ahora"
+            "ahora      ahora"
             "escenarios servicios"
             "escenarios cambios"
-            "proximas  proximas";
+            "escenarios informacion"
+            "proximas   proximas";
         gap: var(--espacio-4);
         align-items: start;
     }
@@ -236,6 +237,7 @@ footer {
     #escenarios { grid-area: escenarios; }
     #servicios  { grid-area: servicios; }
     #cambios    { grid-area: cambios; }
+    #informacion { grid-area: informacion; }
     #proximas   { grid-area: proximas; }
     .escenarios { grid-template-columns: repeat(2, 1fr); }
 }
