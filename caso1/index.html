@@ -141,7 +141,7 @@
   </ul>
 </section>
 
-  <section id="alertas" aria-labelledby="t-alertas">
+<section id="alertas" aria-labelledby="t-alertas">
     <h2 id="t-alertas">Alertas</h2>
 
 <article class="alerta alerta--critica">
@@ -151,7 +151,20 @@
     <span aria-hidden="true">✕</span>
   </button>
 </article>
-
+<article class="alerta alerta--advertencia">
+  <h3 class="alerta__titulo"><span aria-hidden="true">⚠</span> Advertencia: sensor meteorológico sin conexión</h3>
+  <p class="alerta__texto">Prioridad media · Torre 2, sin transmisión de datos hace 20 minutos</p>
+  <button type="button" class="cerrar" aria-label="Cerrar alerta: sensor meteorológico sin conexión">
+    <span aria-hidden="true">✕</span>
+  </button>
+</article>
+<article class="alerta alerta--advertencia">
+  <h3 class="alerta__titulo"><span aria-hidden="true">⚠</span> Retraso en misión de hidrología</h3>
+  <p class="alerta__texto">Prioridad media · Medición de caudal, Río Guacimal, 15 minutos de retraso</p>
+  <button type="button" class="cerrar" aria-label="Cerrar alerta: retraso en misión de hidrología">
+    <span aria-hidden="true">✕</span>
+  </button>
+</article>
 <article class="alerta">
   <h3 class="alerta__titulo"><span aria-hidden="true">ℹ</span> Informativa: batería baja en equipo remoto</h3>
   <p class="alerta__texto">Prioridad informativa · Sensor de cámara trampa, sendero sur</p>
@@ -159,7 +172,7 @@
     <span aria-hidden="true">✕</span>
   </button>
 </article>
-  </section>
+</section>
 
   <section id="agenda" aria-labelledby="t-agenda">
     <h2 id="t-agenda">Próximas actividades</h2>
