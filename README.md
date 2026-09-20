@@ -106,3 +106,7 @@ Cada caso es independiente y no requiere servidor. Abrir directamente
 | 12 | 2026-09-18 | 525a5db | Creacion de Misiones y Resumen con HTML semantico y su respectivo CSS con Flex | Ambos | Misiones/Resumen en caso 1, imágenes SVG |
 | 13 | 2026-09-18 | 67ba691 | Ajuste en alertas y media CSS para caso 1 | Caso 1 | Alertas y media queries |
 | 14 | 2026-09-19 | 7f87b8d | Modificar caso 2 y agregar CSS en formato distinto al caso 1 | Caso 2 | CSS con variables consistentes |
+| 15 | 2026-09-20 | 1bd06f1 | Agregar 2 alertas adicionales en caso 1 | Caso 1 | Alertas informativa y de retraso |
+| 16 | 2026-09-20 | e3b4012 | Creacion de Readme segun consigna y ajustes en CSS | Ambos | README y ajustes de estilos |
+| 17 | 2026-09-20 | 2386299 | Creacion de Readme, no se commit anteriormente | Ambos | README agregado al control de versiones |
+| 18 | 2026-09-20 | 61418ca | Remover imagen cabecera en caso 1 y ajustes CSS | Caso 1 | Se elimina imagen de cabecera |

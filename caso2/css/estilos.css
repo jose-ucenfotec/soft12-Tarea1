@@ -48,9 +48,13 @@ img { max-width: 100%; height: auto; }
     margin: 0;
     padding: .5rem var(--espacio-3);
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;          /* una fila en teléfono */
+    overflow-x: auto;           /* scroll interno */
     gap: .5rem;
+    scrollbar-width: none;
 }
+
+.nav__lista::-webkit-scrollbar { display: none; }
 
 .nav__enlace {
     color: #fff;
@@ -58,6 +62,15 @@ img { max-width: 100%; height: auto; }
     padding: .35rem .6rem;
     border-radius: .4rem;
     font-size: .8rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.nav__enlace:hover,
+.nav__enlace:focus-visible {
+    background: rgba(255,255,255,.2);
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
 }
 
 .nav__enlace[aria-current="page"] {
@@ -71,7 +84,7 @@ img { max-width: 100%; height: auto; }
     padding: var(--espacio-3);
 }
 
-section { margin-bottom: var(--espacio-4); }
+section { margin-bottom: var(--espacio-4); scroll-margin-top: 4rem; }
 
 h2 {
     font-size: 1rem;
@@ -110,7 +123,7 @@ h2 {
     right: .5rem;
     background: var(--color-acento);
     color: #241b2f;
-    font-size: .7rem;
+    font-size: .75rem;
     font-weight: 700;
     padding: .1rem .5rem;
     border-radius: 999px;
@@ -142,12 +155,20 @@ h2 {
 
 .categoria {
     margin-left: auto;
-    font-size: .65rem;
+    font-size: .75rem;
     padding: .1rem .5rem;
     border-radius: 999px;
     background: #eee5f7;
     color: var(--color-primario);
 }
+
+
+.categoria--musica      { background: #e8f1fb; color: #0b4a8b; }
+.categoria--teatro      { background: #f1e8f8; color: #4a148c; }
+.categoria--danza       { background: #fde8f0; color: #ad1457; }
+.categoria--gastronomia { background: #fff3e0; color: #8a5300; }
+.categoria--conferencia { background: #e4f5ea; color: #14663c; }
+.categoria--cultural    { background: #eee5f7; color: var(--color-primario); }
 
 .cambios {
     list-style: none;
@@ -166,6 +187,9 @@ h2 {
     font-size: .8rem;
 }
 
+.cambio--traslado    { border-left-color: #1565c0; background: #e8f1fb; }
+.cambio--horario     { border-left-color: var(--color-acento); background: #fff8e6; }
+.cambio--escenario   { border-left-color: #6a1b9a; background: #f1e8f8; }
 .cambio--cancelacion { border-left-color: #c62828; background: #fde8e8; }
 
 /* Servicios */
@@ -203,6 +227,20 @@ h2 {
 .escenario-tarjeta h3 { margin: 0 0 .35rem; font-size: .9rem; color: var(--color-primario); }
 .escenario-tarjeta ul { margin: 0; padding-left: 1rem; font-size: .8rem; }
 
+/* Información general */
+.info {
+    font-style: normal;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: var(--espacio-3);
+    font-size: .85rem;
+}
+
+.info p { margin: 0 0 .35rem; }
+.info p:last-child { margin-bottom: 0; }
+.info a { color: var(--color-primario); }
+
 footer {
     text-align: center;
     padding: var(--espacio-3);
@@ -215,6 +253,7 @@ footer {
     .contenedor { max-width: 40rem; }
     .escenarios { grid-template-columns: repeat(2, 1fr); }
     .servicios li { flex: 0 1 auto; }
+     .nav__lista { flex-wrap: wrap; overflow: visible; }   
 }
 
 /* escritorio (>1024px)  */
@@ -239,5 +278,7 @@ footer {
     #cambios    { grid-area: cambios; }
     #informacion { grid-area: informacion; }
     #proximas   { grid-area: proximas; }
-    .escenarios { grid-template-columns: repeat(2, 1fr); }
+    .escenarios { grid-template-columns: repeat(4, 1fr); }
+    .tarjetas-ahora { flex-direction: row; }
+    .tarjetas-ahora li { flex: 1 1 0; }
 }
