@@ -22,71 +22,59 @@ servicios disponibles y programación por escenario.
 
 ## Estructura de carpetas
 
+```
 soft12-Tarea1/
 ├── README.md
 ├── caso1/
-│ ├── index.html
-│ ├── css/estilos.css
-│ └── img/ (estacion.svg, mapa.svg)
+│   ├── index.html
+│   ├── css/estilos.css
+│   └── img/
 └── caso2/
-├── index.html
-├── css/estilos.css
-└── img/
+    ├── index.html
+    ├── css/estilos.css
+    └── img/
+```
 
 
 ## Decisiones de diseño
 
-- **Etiquetas semánticas:** `header` para los datos generales, `nav` para la
-  navegación por anclas, `main` para el contenido principal, `section` por
-  cada bloque temático (resumen, misiones, equipos, alertas, agenda / ahora,
-  próximas, cambios, servicios, escenarios, información), `article` para cada
-  elemento independiente y repetible (una misión, un equipo, una alerta, una
-  actividad, un escenario), y `footer`/`address` para los datos de contacto.
-- **Jerarquía de encabezados:** `h1` es el nombre del proyecto; `h2` titula
-  cada `section` (vinculado con `aria-labelledby`); `h3` titula cada elemento
-  individual dentro de una sección.
-- **Accesibilidad:** `lang="es"` en el documento, `alt` descriptivo en
-  imágenes de contenido y `alt=""` en las decorativas, `aria-labelledby` en
-  cada sección, `aria-label` en los botones de cerrar alerta, `aria-current`
-  en el enlace de navegación activo, y los estados (pendiente, en progreso,
-  completada, suspendida / en este momento) se comunican con texto además
-  de color.
-- **Modelo de caja:** `box-sizing: border-box` global; `padding` interno en
-  tarjetas y artículos; `margin-bottom` para separar secciones; `max-width`
-  en el contenedor principal para no estirarse en pantallas grandes.
-- **Posicionamiento:** `position: sticky` en la navegación (se usa porque el
-  usuario necesita volver a las secciones sin perder el scroll); `position:
-  absolute` dentro de un contenedor `position: relative` para superponer la
-  etiqueta de prioridad (caso 1) y la etiqueta "En este momento" (caso 2)
-  sobre la tarjeta sin sacarla del flujo del resto del "layout".
-- **Cascada y especificidad:** clases con convención BEM
-  (`bloque__elemento--modificador`) para evitar selectores anidados y
-  sobrescrituras; los modificadores de estado/prioridad heredan de una clase
-  base y solo cambian color/fondo.
-- **Flexbox:** en la navegación, en los indicadores/servicios (fila que
-  envuelve), y en la organización interna de tarjetas (agenda, próximas
-  actividades, equipos).
-- **CSS Grid:** en el layout principal de escritorio mediante
-  `grid-template-areas`, y en las listas de tarjetas (misiones, equipos,
-  escenarios) con `auto-fit`/`auto-fill` y `minmax()`.
-- **Cambio de layout por tamaño:** en teléfono todo se apila en una columna
+- **¿Por qué seleccionó determinadas etiquetas semánticas?** 
+Usé header para la cabecera de la expedición porque agrupa la identificación del documento (nombre, ubicación, día, estado). nav envuelve la lista de enlaces a las secciones. main contiene el contenido principal único de la página. Cada bloque temático (Misiones, Equipos, Alertas, Agenda) es una section con su propio h2, porque son agrupaciones de contenido relacionado con título. Cada misión y cada alerta es un article porque tiene sentido por sí misma y podría mostrarse de forma independiente. Las alertas van en un aside cuando son complementarias al flujo principal. Usé ul/li para la agenda porque es una lista de ítems y time para las horas. Reservé div solo para agrupar por motivos de layout donde no había un significado semántico.
+- **¿Cómo organizó la jerarquía de encabezados?** 
+Cada página tiene un único h1 (el nombre de la expedición / del festival). Cada sección principal tiene un h2 (Resumen de operaciones, Misiones activas, Equipos, Alertas, Agenda). Dentro de cada sección, los elementos individuales usan h3 (el nombre de cada misión, de cada equipo). No salté niveles: nunca hay un h3 sin un h2 por encima. Cuando necesité texto grande sin ser un título (el número de un indicador) usé un span/p con una clase, no un encabezado, porque los encabezados definen estructura, no tamaño. Comprobé la jerarquía con la vista de esquema del navegador usando DevTools.
+- **¿Cómo incorporó la accesibilidad básica?** 
+`lang="es"` en el documento 
+`alt` descriptivo en imágenes de contenido y `alt=""` en las decorativas
+`aria-labelledby` en cada sección, `aria-label` en los botones de cerrar alerta, `aria-current` en el enlace de navegación activo
+Los estados (pendiente, en progreso, completada, suspendida / en este momento) se comunican con texto además de color.
+- **¿Cómo funciona el modelo de caja en sus principales componentes?** 
+Apliqué *, *::before, *::after { box-sizing: border-box } globalmente, de modo que el width de una tarjeta incluye su padding y su borde y puedo declarar width: 100% sin desbordar. En las tarjetas de misión el espaciado interno es padding: var(--espacio-3) y la separación entre tarjetas la aporta el gap del contenedor Grid/Flex, no márgenes individuales, así no hay márgenes dobles ni correcciones con :last-child. Los contenedores tienen max-width en rem y width: 100%, de forma que en teléfono ocupan todo el ancho y en escritorio se limitan. Las imágenes tienen max-width: 100%; height: auto. Los márgenes verticales entre secciones siguen una escala (--espacio-2, --espacio-4) definida en variables para que el espaciado sea un sistema y no valores arbitrarios.
+- **¿Dónde utilizó posicionamiento, cuál valor de position y por qué?**
+Caso 1: el encabezado con los indicadores usa position: sticky; top: 0; z-index: 10 para que el estado general permanezca visible mientras el coordinador recorre las misiones; elegí sticky y no fixed porque sticky respeta el flujo y no obliga a compensar con padding. Además, la etiqueta de prioridad de cada misión usa position: absolute; top: .5rem; right: .5rem dentro de la tarjeta, que tiene position: relative para ser su contenedor de referencia; la tarjeta reserva padding-top suficiente para que la etiqueta nunca tape el título en 320px.
+
+Caso 2: la navegación es position: sticky; bottom: 0 en teléfono para que siempre esté al alcance del pulgar, y la etiqueta «En este momento» es absolute sobre la tarjeta relative. En ningún caso el posicionamiento construye el layout general: eso lo hacen Grid y Flexbox.
+- **¿Por qué algunos estilos prevalecen sobre otros?**
+Por la cascada: cuando dos reglas afectan a la misma propiedad gana la de mayor especificidad y, a igual especificidad, la que aparece después en el archivo. Organicé el CSS en ese orden: reset y variables, estilos base de elementos, layout, componentes, modificadores y por último las media queries, de modo que una regla posterior sobrescriba intencionalmente a una anterior con la misma especificidad (una clase). Usé casi exclusivamente selectores de clase (especificidad 0,1,0) para que ningún selector «pese» demasiado; los modificadores como .alerta--critica van después de .alerta y por eso prevalecen. No usé !important ni IDs para estilos, porque rompen la cascada y obligan a más correcciones.
+- **¿Dónde utilizó Flexbox y por qué?** 
+Usé Flexbox donde había que distribuir elementos en una dimensión: la navegación (.nav__lista) es una fila de enlaces con gap que se envuelve con flex-wrap en teléfono; la cabecera de cada misión usa justify-content: space-between para llevar el título a la izquierda y la prioridad a la derecha; los indicadores se reparten el ancho con flex y se envuelven; dentro de las tarjetas, flex-direction: column con margin-top: auto en el pie mantiene el estado alineado abajo; los badges de estado usan inline-flex para alinear icono y texto. En el festival, la navegación cambia de columna a fila con una media query. No usé Flexbox para la estructura general porque esa es bidimensional.
+
+- **¿Dónde utilizó CSS Grid y por qué?**
+En el Caso 1 el main es un Grid con grid-template-areas: en teléfono una sola columna (resumen, alertas, misiones, equipos, agenda), en tableta dos columnas y en escritorio tres, con las misiones ocupando dos filas y las alertas siempre visibles en la primera fila; así reorganizo zonas completas cambiando solo la plantilla de áreas. También usé repeat(auto-fit, minmax(16rem, 1fr)) para la cuadrícula de equipos, que ajusta el número de columnas al ancho sin media queries. En el Caso 2 la programación por escenarios es un Grid cuyas columnas son los cuatro escenarios y cuyas filas son las franjas horarias, lo que permite compararlos visualmente en escritorio; en teléfono pasa a una columna.
+- **¿Cómo cambia el layout entre teléfono, tableta y escritorio?**
+en teléfono todo se apila en una columna
   siguiendo el orden de prioridad de lectura; en tableta se ajustan
   distribuciones intermedias; en escritorio el contenedor principal pasa a
   grid multi-columna con zonas nombradas.
-- **Media queries:** `min-width: 601px` (tableta) y `min-width: 1025px`
-  (escritorio).
-- **Unidades relativas:** `rem` en tipografía y espaciados, `%`/`fr` en
-  anchos de columnas y contenedores; solo se usan `px` en bordes y en el
-  radio de píldora (999px), que son valores absolutos intencionales.
-- **Variables CSS:** `--color-primario`/`--color-acento` para la identidad
-  visual de cada caso, `--color-fondo`/`--color-superficie`/`--color-texto`
-  para mantener el contraste consistente, `--espacio-2/3/4` como escala de
-  espaciado reutilizable y `--radio` para el redondeo de tarjetas y botones.
-
+- **¿Cuáles media queries utilizó y por qué seleccionó esos breakpoints?** 
+Usé dos media queries de tipo min-width (mobile-first): @media (min-width: 601px) y @media (min-width: 1024px), que corresponden a la referencia de la consigna (teléfono hasta 600, tableta hasta 1024, escritorio a partir de 1024). Los elegí porque a partir de ~600px ya caben dos tarjetas de 16rem con su separación, y a partir de ~1024px caben tres zonas legibles. Las verifiqué con el modo dispositivo de DevTools en 320, 375, 600, 768, 1024 y 1440px.
+- **¿Cuáles unidades relativas utilizó?** 
+Tipografía en rem con clamp() para el título fluido; espaciados y radios en rem/em a través de variables; anchos de contenedores en %/max-width en rem; columnas de Grid en fr; alturas mínimas de la cabecera en vh cuando aplica. Solo usé px para bordes de 1px y sombras.
+- **¿Para qué sirven las variables CSS que definió?** 
+Definí en :root un sistema: colores (--color-primario, --color-fondo, --color-texto, --color-alerta-critica…), una escala de espaciado (--espacio-1 a --espacio-6), radios (--radio) y sombras. Sirven para centralizar los valores y mantener consistencia, ya que cambiar el color primario en un sitio actualiza toda la interfaz; la escala de espaciado evita valores arbitrarios en lo posible.
 
 ## Instrucciones para abrir cada caso
 Cada caso es independiente y no requiere servidor. Abrir directamente
-`caso1/index.html` o `caso2/index.html` en cualquier navegador.
+`caso1/index.html` o `caso2/index.html` en cualquier navegador tras hacer un clone del repositorio.
 
 ## Resumen de commits
 
@@ -110,3 +98,8 @@ Cada caso es independiente y no requiere servidor. Abrir directamente
 | 16 | 2026-09-20 | e3b4012 | Creacion de Readme segun consigna y ajustes en CSS | Ambos | README y ajustes de estilos |
 | 17 | 2026-09-20 | 2386299 | Creacion de Readme, no se commit anteriormente | Ambos | README agregado al control de versiones |
 | 18 | 2026-09-20 | 61418ca | Remover imagen cabecera en caso 1 y ajustes CSS | Caso 1 | Se elimina imagen de cabecera |
+| 19 | 2026-09-20 | 1993b13 | Ajustes de variables globales para evitar usar valores estaticos en CSS | Ambos | Variables globales CSS |
+| 20 | 2026-09-20 | 616be95 | Ajustes en colores, contraste y escritorio para caso 1 | Caso 1 | Refinamiento de paleta y responsive |
+| 21 | 2026-09-20 | ee7bffd | Ajustes en colores, contraste y escritorio para caso 2 | Caso 2 | Refinamiento de paleta y responsive |
+| 22 | 2026-09-20 | 3bed263 | Ajustes en colores, contraste y escritorio para CSS de caso 1 | Caso 1 | Ajustes finales de contraste CSS |
+| 2. | 2026-09-20 | ed7a894 | Cambios en readme y agregar imagen en header para caso2 |  Ambos | README ajustes y agregar una imagen a caso 2 |

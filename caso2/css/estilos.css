@@ -73,10 +73,9 @@ img { max-width: 100%; height: auto; }
     margin: 0;
     padding: var(--espacio-2) var(--espacio-3);
     display: flex;
-    flex-wrap: nowrap;          /* una fila en teléfono */
-    overflow-x: auto;           /* scroll interno */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--espacio-2);
-    scrollbar-width: none;
 }
 
 .nav__lista::-webkit-scrollbar { display: none; }
