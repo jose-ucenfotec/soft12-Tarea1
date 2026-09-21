@@ -31,6 +31,12 @@
   --espacio-2: .5rem;
   --espacio-3: 1rem;
   --espacio-4: 1.5rem;
+ /* Tipografía */
+  --texto-xs: .75rem;
+  --texto-sm: .875rem;
+  --texto-md: 1rem;
+  --texto-lg: 1.125rem;
+  --texto-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
   /* Radios */
   --radio: .75rem;
 }
@@ -51,16 +57,14 @@ main {
 }
 
 main section {
-    margin-bottom: 2rem;
+    margin-bottom: var(--espacio-4);
     scroll-margin-top: 4.5rem;
 }
 
 h2 {
-    margin: 0 0 .75rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--color-texto-suave);
+    margin: 0 0 var(--espacio-2);
+    font-size: var(--texto-lg);
+    color: var(--color-primario);
 }
 
 img {
@@ -77,7 +81,7 @@ header {
 
 header h1 {
     margin: 0 0 .25rem;
-    font-size: 1.5rem;
+    font-size: var(--texto-xl);
 }
 
 header p {
@@ -124,7 +128,7 @@ header p {
     outline-offset: 2px;
 }
 
-.nav__enlace[aria-current="page"] {
+.nav__enlace[aria-current="location"] {
     color: var(--color-acento);
     background: rgba(255, 255, 255, .12);
     font-weight: 700;
@@ -175,7 +179,7 @@ figcaption {
     margin: 0;
     padding: 0;
     display: grid;
-    gap: .75rem;
+    gap: var(--espacio-2);
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
@@ -190,7 +194,7 @@ figcaption {
 
 .misiones h3 {
     margin: 0 0 .25rem;
-    font-size: 1rem;
+    font-size: var(--texto-md);
     color: var(--color-texto);
 }
 
@@ -248,7 +252,7 @@ figcaption {
 .alerta__titulo {
     margin: 0 0 .25rem;
     font-size: 1rem;
-    color: #333;
+    color: var(--color-texto);
 }
 
 .alerta__texto {
@@ -293,6 +297,12 @@ figcaption {
     border-left-color: var(--color-advertencia);
 }
 .alerta--advertencia .alerta__titulo { color: var(--color-advertencia); }
+
+.alerta--info {
+    background: var(--color-info-fondo);
+    border-left-color: var(--color-info);
+}
+.alerta--info .alerta__titulo { color: var(--color-info); }
 
 .alerta--critica .alerta__titulo {
     color: var(--color-critico);
@@ -365,7 +375,7 @@ footer a {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: .75rem;
+    gap: var(--espacio-2);
 }
 
 .indicador {
@@ -380,13 +390,13 @@ footer a {
 }
 
 .indicador__valor {
-    font-size: 1.5rem;
+    font-size: var(--texto-lg);
     font-weight: 700;
     color: var(--color-primario);
 }
 
 .indicador__etiqueta {
-    font-size: .75rem;
+    font-size: var(--texto-xs);
     color: var(--color-texto-suave);
 }
 
@@ -411,7 +421,7 @@ footer a {
     position: absolute;
     top: .5rem;
     right: .5rem;
-    font-size: .7rem;
+    font-size: var(--texto-xs);
     font-weight: 700;
     padding: .1rem .5rem;
     border-radius: 999px;
@@ -429,7 +439,7 @@ footer a {
     margin: 0;
     padding: 0;
     display: grid;
-    gap: .75rem;
+    gap: var(--espacio-2);
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
 
@@ -446,12 +456,12 @@ footer a {
 
 .equipo-tarjeta h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: var(--texto-md);
 }
 
 .equipo-tarjeta__dato {
     margin: 0;
-    font-size: .8rem;
+    font-size: var(--texto-sm);
     color: var(--color-texto-suave);
 }
 
