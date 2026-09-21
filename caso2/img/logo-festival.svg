@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="titulo-logo">
+  <title id="titulo-logo">Logotipo del Festival Cultural Ribera</title>
+
+  <!-- Insignia -->
+  <circle cx="60" cy="60" r="58" fill="#ffb300"/>
+  <circle cx="60" cy="60" r="50" fill="#4a148c"/>
+
+  <!-- Banderines -->
+  <path d="M18 36 Q60 50 102 36" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="21,38 31,39 26,50" fill="#ffb300"/>
+  <polygon points="38,41.5 48,42.5 43,54" fill="#fde8f0"/>
+  <polygon points="55,43 65,43 60,55" fill="#ffb300"/>
+  <polygon points="72,42.5 82,41.5 77,54" fill="#e8f1fb"/>
+  <polygon points="89,39 99,38 94,50" fill="#ffb300"/>
+
+  <!-- Nota musical -->
+  <path d="M56 80 V60 l18 -5 V74" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="51" cy="80" r="5" fill="#fff"/>
+  <circle cx="69" cy="74" r="5" fill="#fff"/>
+
+  <!-- Escenario -->
+  <rect x="28" y="88" width="64" height="8" rx="2" fill="#fff"/>
+  <rect x="34" y="96" width="52" height="5" fill="#ddd0ea"/>
+</svg>
