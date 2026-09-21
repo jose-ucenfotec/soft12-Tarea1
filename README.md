@@ -102,3 +102,5 @@ Cada caso es independiente y no requiere servidor. Abrir directamente
 | 22 | 2026-09-20 | 3bed263 | Ajustes en colores, contraste y escritorio para CSS de caso 1 | Caso 1 | Ajustes finales de contraste CSS |
 | 23 | 2026-09-20 | ed7a894 | Cambios en readme y agregar imagen en header para caso2 |  Ambos | README ajustes y agregar una imagen a caso 2 |
 | 24 | 2026-09-20 | 5486ed0 | Cambios en el nav de caso 2 para evitar hacer control, y no puder usar JS | Caso2 | Cambiar el nowrap en nav, para mejorar experiencia de usuario |
+| 25 | 2026-09-20 | c5c692e | Cambios Readme | Ambos | Ajuster el log del readme |
+| 26 | 2026-09-20 | c90a844 | Ajuste en Nav para caso 1 | Caso1 | Cambiar el nowrap en nav, para mejorar experiencia de usuario |
